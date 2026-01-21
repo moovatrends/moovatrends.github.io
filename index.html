@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>moovatrends</title>
+
+  <!-- Tipografía Satoshi -->
+  <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Satoshi', sans-serif;
+      background: #ffffff;
+      color: #000000;
+    }
+
+    header {
+      background: #000;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header span {
+      color: #ffd400;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .producto {
+      border: 2px solid #000;
+      padding: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      background: #ffd400;
+      color: #000;
+      padding: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid #000;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>moova<span>trends</span></h1>
+  <p>Productos importados</p>
+</header>
+
+<section>
+  <h2>Bienvenidos</h2>
+  <p>Vendemos productos importados seleccionados con atención personalizada.</p>
+</section>
+
+<section>
+  <h2>Productos</h2>
+
+  <div class="productos">
+    <div class="producto">
+      <h3>Producto 1</h3>
+      <p>$100 USD</p>
+      <a class="btn" href="https://wa.me/5491111111111" target="_blank">
+        Comprar por WhatsApp
+      </a>
+    </div>
+
+    <div class="producto">
+      <h3>Producto 2</h3>
+      <p>$150 USD</p>
+      <a class="btn" href="https://wa.me/5491111111111" target="_blank">
+        Comprar por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
