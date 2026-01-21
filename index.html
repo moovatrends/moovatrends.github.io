@@ -5,54 +5,98 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>moovatrends</title>
 
-  <!-- Tipografía Satoshi -->
+  <!-- Tipografía -->
   <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
 
   <style>
-    body {
+    :root {
+      --negro: #000;
+      --blanco: #fff;
+      --amarillo: #ffd400;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
       font-family: 'Satoshi', sans-serif;
-      background: #ffffff;
-      color: #000000;
+    }
+
+    body {
+      background: var(--blanco);
+      color: var(--negro);
     }
 
     header {
-      background: #000;
-      color: #fff;
-      padding: 20px;
       text-align: center;
+      padding: 30px 20px;
+      border-bottom: 2px solid var(--negro);
     }
 
-    header span {
-      color: #ffd400;
+    header img {
+      max-width: 180px;
+      margin-bottom: 10px;
     }
 
     section {
-      padding: 40px 20px;
-      max-width: 1000px;
+      padding: 50px 20px;
+      max-width: 1100px;
       margin: auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      border-left: 6px solid var(--amarillo);
+      padding-left: 10px;
+    }
+
+    .categoria {
+      margin-bottom: 50px;
     }
 
     .productos {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 20px;
     }
 
     .producto {
-      border: 2px solid #000;
+      border: 2px solid var(--negro);
       padding: 20px;
+    }
+
+    .producto img {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .precio {
+      font-weight: bold;
+      margin: 10px 0;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 10px;
-      background: #ffd400;
-      color: #000;
+      background: var(--amarillo);
+      color: var(--negro);
       padding: 10px;
       text-decoration: none;
       font-weight: bold;
-      border: 2px solid #000;
+      border: 2px solid var(--negro);
+    }
+
+    /* BOTÓN WHATSAPP */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: #fff;
+      padding: 15px 18px;
+      border-radius: 50%;
+      font-size: 24px;
+      text-decoration: none;
+      z-index: 1000;
     }
   </style>
 </head>
@@ -60,36 +104,56 @@
 <body>
 
 <header>
-  <h1>moova<span>trends</span></h1>
+  <!-- LOGO -->
+  <img src="logo.png" alt="moovatrends logo">
   <p>Productos importados</p>
 </header>
 
 <section>
   <h2>Bienvenidos</h2>
-  <p>Vendemos productos importados seleccionados con atención personalizada.</p>
+  <p>En moovatrends traemos productos importados seleccionados, con atención directa y rápida por WhatsApp.</p>
 </section>
 
 <section>
-  <h2>Productos</h2>
 
-  <div class="productos">
-    <div class="producto">
-      <h3>Producto 1</h3>
-      <p>$100 USD</p>
-      <a class="btn" href="https://wa.me/5491111111111" target="_blank">
-        Comprar por WhatsApp
-      </a>
-    </div>
+  <!-- CATEGORIA 1 -->
+  <div class="categoria">
+    <h2>Tecnología</h2>
+    <div class="productos">
 
-    <div class="producto">
-      <h3>Producto 2</h3>
-      <p>$150 USD</p>
-      <a class="btn" href="https://wa.me/5491111111111" target="_blank">
-        Comprar por WhatsApp
-      </a>
+      <div class="producto">
+        <img src="https://via.placeholder.com/300x200" alt="Producto tech">
+        <h3>Producto Tech 1</h3>
+        <p class="precio">$120 USD</p>
+        <a class="btn" href="https://wa.me/5491111111111?text=Hola,%20quiero%20el%20Producto%20Tech%201" target="_blank">
+          Comprar por WhatsApp
+        </a>
+      </div>
+
     </div>
   </div>
+
+  <!-- CATEGORIA 2 -->
+  <div class="categoria">
+    <h2>Hogar</h2>
+    <div class="productos">
+
+      <div class="producto">
+        <img src="https://via.placeholder.com/300x200" alt="Producto hogar">
+        <h3>Producto Hogar 1</h3>
+        <p class="precio">$90 USD</p>
+        <a class="btn" href="https://wa.me/5491111111111?text=Hola,%20quiero%20el%20Producto%20Hogar%201" target="_blank">
+          Comprar por WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </div>
+
 </section>
+
+<!-- WHATSAPP FLOTANTE -->
+<a class="whatsapp-float" href="https://wa.me/5491111111111" target="_blank">💬</a>
 
 </body>
 </html>
