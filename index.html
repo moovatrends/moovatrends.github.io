@@ -6,192 +6,189 @@
 <title>moovatrends</title>
 
 <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
-
 <style>
-:root{
-  --negro:#000;
-  --blanco:#fff;
-  --amarillo:#ffd400;
+
+/* ================= GLOBAL ================= */
+body {
+  margin: 0;
+  font-family: 'Satoshi', sans-serif;
+  background: #f9f9f9;
+  color: #222;
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Satoshi',sans-serif;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-body{
-  background:#fff;
-  color:#000;
+/* =============== HEADER =============== */
+header {
+  background: #000;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
 }
 
-/* ===== HEADER / BANNER ===== */
-.banner{
-  width:100%;
-  background:#000;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:480px; /* MÁS GRANDE EN DESKTOP */
+header img {
+  max-width: 180px;
+  height: auto;
 }
 
-.banner img{
-  max-width:100%;
-  max-height:100%;
-  object-fit:contain;
+/* =============== NAV =============== */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  padding: 14px;
+  background: #fff;
+  border-bottom: 2px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-/* ===== MENU ===== */
-.menu{
-  position:sticky;
-  top:0;
-  background:#fff;
-  border-bottom:2px solid #000;
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:18px;
-  padding:16px;
-  z-index:10;
+nav a {
+  font-weight: bold;
+  color: #000;
 }
 
-.menu a{
-  text-decoration:none;
-  color:#000;
-  font-weight:600;
+/* =============== SECCIONES =============== */
+section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
 }
 
-/* ===== CATEGORIAS ===== */
-.categoria{
-  max-width:1200px;
-  margin:50px auto;
-  padding:0 20px;
+h2.section-title {
+  margin-bottom: 20px;
+  border-left: 6px solid #ffd400;
+  padding-left: 10px;
+  font-size: 24px;
 }
 
-.categoria h2{
-  margin-bottom:20px;
-  border-left:6px solid var(--amarillo);
-  padding-left:10px;
+/* =============== PRODUCTOS =============== */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
 }
 
-.productos{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
+.product-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  text-align: center;
+  position: relative;
 }
 
-.producto{
-  border:1px solid #ddd;
-  padding:15px;
-  text-align:center;
+.product-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
 }
 
-.producto img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
+.product-card h3 {
+  margin: 10px 0;
+  font-size: 18px;
 }
 
-.precio{
-  font-weight:bold;
-  margin:10px 0;
+.product-card .price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  margin-top: 8px;
 }
 
-.btn{
-  background:var(--amarillo);
-  border:none;
-  padding:10px 16px;
-  cursor:pointer;
-  font-weight:600;
+.product-card button {
+  background: #ffd400;
+  border: none;
+  padding: 10px;
+  margin-top: 8px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-/* ===== CARRITO ===== */
-.carrito{
-  position:fixed;
-  bottom:20px;
-  left:20px;
-  background:#000;
-  color:#fff;
-  padding:16px;
-  border-radius:10px;
-  width:270px;
-  z-index:20;
+/* =============== CARRITO =============== */
+#cart {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 280px;
+  background: #fff;
+  border: 1px solid #000;
+  padding: 16px;
+  z-index: 20;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+#cart h3 {
+  margin-bottom: 12px;
+}
+#cart ul {
+  list-style: none;
+  max-height: 150px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+}
+#cart li {
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+#cart .total {
+  font-weight: bold;
+  margin-top: 12px;
+}
+#cart button {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: bold;
 }
 
-.carrito h3{
-  margin-bottom:10px;
-  font-size:16px;
+/* =============== WHATSAPP FLOTANTE =============== */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+}
+.whatsapp img {
+  width: 32px;
+  height: 32px;
 }
 
-.carrito ul{
-  list-style:none;
-  max-height:160px;
-  overflow:auto;
-}
-
-.carrito li{
-  font-size:14px;
-  margin-bottom:6px;
-}
-
-.total{
-  margin:10px 0;
-  font-weight:bold;
-}
-
-.finalizar{
-  background:var(--amarillo);
-  border:none;
-  width:100%;
-  padding:12px;
-  font-weight:700;
-  cursor:pointer;
-}
-
-/* ===== WHATSAPP FLOTANTE ===== */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  width:60px;
-  height:60px;
-  background:#25d366;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:30;
-  box-shadow:0 4px 10px rgba(0,0,0,.3);
-}
-
-.whatsapp img{
-  width:32px;
-  height:32px;
-}
-
-/* ===== MOBILE ===== */
-@media(max-width:768px){
-  .banner{
-    height:260px;
+/* =============== RESPONSIVE =============== */
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 12px;
   }
-  .carrito{
-    width:90%;
-    left:5%;
+  #cart {
+    width: 90%;
+    left: 5%;
   }
 }
+
 </style>
 </head>
-
 <body>
 
-<!-- BANNER -->
-<div class="banner">
+<header>
   <img src="logo.png" alt="moovatrends">
-</div>
+</header>
 
-<!-- MENU -->
-<nav class="menu">
+<nav>
   <a href="#tecnologia">Tecnología</a>
   <a href="#belleza">Belleza</a>
   <a href="#bazar">Bazar</a>
@@ -201,145 +198,133 @@ body{
 </nav>
 
 <!-- TECNOLOGÍA -->
-<div class="categoria" id="tecnologia">
-<h2>Tecnología</h2>
-<div class="productos">
-
-<div class="producto">
-<img src="auricularvincha.png">
-<h3>Auricular vincha</h3>
-<p class="precio">$9000</p>
-<button class="btn" onclick="agregar('Auriculares vincha',120)">Agregar</button>
-</div>
-
-<div class="producto">
-<img src="https://via.placeholder.com/300x200">
-<h3>Smartwatch Importado</h3>
-<p class="precio">$120</p>
-<button class="btn" onclick="agregar('Smartwatch Importado',120)">Agregar</button>
-</div>
-
-</div>
-</div>
+<section id="tecnologia">
+  <h2 class="section-title">Tecnología</h2>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="imagenproductos/auricularvincha.png" alt="Auricular Vincha">
+      <h3>Auricular Vincha</h3>
+      <p class="price">$120</p>
+      <button onclick="addToCart('Auricular Vincha', 120)">Agregar</button>
+    </div>
+  </div>
+</section>
 
 <!-- BELLEZA -->
-<div class="categoria" id="belleza">
-<h2>Belleza y cuidado</h2>
-<div class="productos">
-
-<div class="producto">
-<img src="https://via.placeholder.com/300x200">
-<h3>Masajeador Facial</h3>
-<p class="precio">$80</p>
-<button class="btn" onclick="agregar('Masajeador Facial',80)">Agregar</button>
-</div>
-
-</div>
-</div>
+<section id="belleza">
+  <h2 class="section-title">Belleza y Cuidado</h2>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="imagenproductos/secadordepelo.png" alt="Secador de Pelo">
+      <h3>Secador de Pelo</h3>
+      <p class="price">$95</p>
+      <button onclick="addToCart('Secador de Pelo', 95)">Agregar</button>
+    </div>
+  </div>
+</section>
 
 <!-- BAZAR -->
-<div class="categoria" id="bazar">
-<h2>Bazar</h2>
-<div class="productos">
-
-<div class="producto">
-<img src="https://via.placeholder.com/300x200">
-<h3>Set de Cocina</h3>
-<p class="precio">$70</p>
-<button class="btn" onclick="agregar('Set de Cocina',70)">Agregar</button>
-</div>
-
-</div>
-</div>
+<section id="bazar">
+  <h2 class="section-title">Bazar</h2>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="imagenproductos/pizarramagica.png" alt="Pizarra Mágica">
+      <h3>Pizarra Mágica</h3>
+      <p class="price">$60</p>
+      <button onclick="addToCart('Pizarra Mágica', 60)">Agregar</button>
+    </div>
+  </div>
+</section>
 
 <!-- ORGANIZACIÓN -->
-<div class="categoria" id="organizacion">
-<h2>Organización</h2>
-<div class="productos">
-
-<div class="producto">
-<img src="https://via.placeholder.com/300x200">
-<h3>Cajas Organizadoras</h3>
-<p class="precio">$65</p>
-<button class="btn" onclick="agregar('Cajas Organizadoras',65)">Agregar</button>
-</div>
-
-</div>
-</div>
+<section id="organizacion">
+  <h2 class="section-title">Organización</h2>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="imagenproductos/portacosmeticos.png" alt="Portacosméticos">
+      <h3>Portacosméticos</h3>
+      <p class="price">$55</p>
+      <button onclick="addToCart('Portacosméticos', 55)">Agregar</button>
+    </div>
+  </div>
+</section>
 
 <!-- BAÑO -->
-<div class="categoria" id="bano">
-<h2>Baño</h2>
-<div class="productos">
-
-<div class="producto">
-<img src="https://via.placeholder.com/300x200">
-<h3>Dispenser Premium</h3>
-<p class="precio">$60</p>
-<button class="btn" onclick="agregar('Dispenser Premium',60)">Agregar</button>
-</div>
-
-</div>
-</div>
+<section id="bano">
+  <h2 class="section-title">Baño</h2>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="imagenproductos/quitapelusa.png" alt="Quitapelusa">
+      <h3>Quitapelusa</h3>
+      <p class="price">$35</p>
+      <button onclick="addToCart('Quitapelusa', 35)">Agregar</button>
+    </div>
+  </div>
+</section>
 
 <!-- MASCOTAS -->
-<div class="categoria" id="mascotas">
-<h2>Mascotas</h2>
-<div class="productos">
-
-<div class="producto">
-<img src="https://via.placeholder.com/300x200">
-<h3>Juguete Interactivo</h3>
-<p class="precio">$55</p>
-<button class="btn" onclick="agregar('Juguete Interactivo',55)">Agregar</button>
-</div>
-
-</div>
-</div>
+<section id="mascotas">
+  <h2 class="section-title">Mascotas</h2>
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="imagenproductos/mangueraextensible.png" alt="Manguera Extensible">
+      <h3>Manguera Extensible</h3>
+      <p class="price">$50</p>
+      <button onclick="addToCart('Manguera Extensible', 50)">Agregar</button>
+    </div>
+  </div>
+</section>
 
 <!-- CARRITO -->
-<div class="carrito">
-<h3>🛒 Carrito</h3>
-<ul id="lista"></ul>
-<div class="total" id="total">Total: $0</div>
-<button class="finalizar" onclick="finalizar()">Finalizar compra</button>
+<div id="cart">
+  <h3>🛒 Tu carrito</h3>
+  <ul id="cart-items"></ul>
+  <div class="total" id="cart-total">Total: $0</div>
+  <button onclick="checkout()">Finalizar compra</button>
 </div>
 
-<!-- WHATSAPP -->
+<!-- WHATSAPP FLOTANTE -->
 <a class="whatsapp" href="https://wa.me/5493815877039" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
 </a>
 
 <script>
-let carrito=[];
-let total=0;
+let cart = [];
+let total = 0;
 
-function agregar(nombre,precio){
-  carrito.push({nombre,precio});
-  total+=precio;
-  render();
+function addToCart(name, price) {
+  cart.push({ name, price });
+  total += price;
+  renderCart();
 }
 
-function render(){
-  const lista=document.getElementById('lista');
-  lista.innerHTML='';
-  carrito.forEach(p=>{
-    const li=document.createElement('li');
-    li.textContent=`${p.nombre} - $${p.precio}`;
-    lista.appendChild(li);
+function renderCart() {
+  const list = document.getElementById('cart-items');
+  list.innerHTML = '';
+  cart.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = `${item.name} - $${item.price}`;
+    list.appendChild(li);
   });
-  document.getElementById('total').textContent=`Total: $${total}`;
+  document.getElementById('cart-total').textContent = `Total: $${total}`;
 }
 
-function finalizar(){
-  let mensaje='Hola! Quiero comprar:%0A';
-  carrito.forEach(p=>{
-    mensaje+=`- ${p.nombre} $${p.precio}%0A`;
+function checkout() {
+  if (cart.length === 0) {
+    alert('Agrega productos antes de finalizar');
+    return;
+  }
+  let message = 'Hola! Quiero comprar:\n';
+  cart.forEach(item => {
+    message += `- ${item.name} $${item.price}\n`;
   });
-  mensaje+=`%0ATotal: $${total}`;
-  window.open(`https://wa.me/5493815877039?text=${mensaje}`);
+  message += `\nTotal: $${total}`;
+
+  const url = `https://wa.me/5493815877039?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
 }
 </script>
 
 </body>
 </html>
+
