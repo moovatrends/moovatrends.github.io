@@ -1,202 +1,107 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Moovatrends</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Fuente similar a Satoshi -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font -->
+  <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
 
   <style>
     body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: #fff;
-      color: #111;
-    }
-
-    header {
-      background: #000;
-      text-align: center;
-    }
-
-    header img {
-      width: 100%;
-      max-height: 480px;
-      object-fit: cover;
-      display: block;
-    }
-
-    h2 {
-      margin: 40px 20px 20px;
-      font-size: 24px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 20px;
-      padding: 0 20px 40px;
-    }
-
-    .product {
-      border-radius: 20px;
-      overflow: hidden;
-      background: #f2f2f2;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .product-img {
-      aspect-ratio: 4 / 5;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .product-info {
-      padding: 15px;
-      flex: 1;
-    }
-
-    .product-info h3 {
-      margin: 0 0 5px;
-      font-size: 16px;
-    }
-
-    .price {
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .product-info button {
-      width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 10px;
-      background: #000;
-      color: #fff;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .product-info button:hover {
-      background: #ffd400;
-      color: #000;
-    }
-
-    /* Botón flotante WhatsApp */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      background: #25D366;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-    }
-
-    .whatsapp-float img {
-      width: 35px;
-    }
-
-    /* Carrito */
-    #cart {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: #000;
-      color: #fff;
-      padding: 12px 18px;
-      border-radius: 30px;
-      cursor: pointer;
-      font-weight: 600;
-    }
-
-    @media (max-width: 600px) {
-      h2 {
-        font-size: 20px;
-      }
+      font-family: 'Satoshi', sans-serif;
     }
   </style>
 </head>
 
-<body>
+<body class="bg-[#fdfdfb] text-[#111]">
 
-<header>
-  <img src="logo.png" alt="Moovatrends">
+<!-- HEADER -->
+<header class="sticky top-0 bg-white/90 backdrop-blur border-b z-50">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-center">
+    <img src="logo.png" alt="Moovatrends" class="h-16">
+  </div>
 </header>
 
-<!-- TECNOLOGÍA -->
-<h2>Tecnología</h2>
-<div class="grid">
+<!-- CATEGORÍA -->
+<section class="max-w-6xl mx-auto px-6 py-10">
+  <h2 class="text-3xl font-black mb-8">Tecnología</h2>
 
-  <div class="product">
-    <div class="product-img" style="background-image:url('imagenproductos/auricularvincha.png')"></div>
-    <div class="product-info">
-      <h3>Auricular Vincha</h3>
-      <div class="price">$18.500</div>
-      <button onclick="addToCart('Auricular Vincha',18500)">Agregar</button>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+
+    <!-- PRODUCTO -->
+    <div class="group">
+      <div class="aspect-[3/4] rounded-3xl overflow-hidden bg-gray-100 mb-4">
+        <img src="imagenproductos/auricularvincha.png"
+             class="w-full h-full object-cover group-hover:scale-105 transition">
+      </div>
+      <h3 class="font-bold text-sm">Auricular Vincha</h3>
+      <p class="font-black text-lg">$18.500</p>
+      <button onclick="agregarProducto('Auricular Vincha',18500)"
+              class="mt-2 w-full bg-black text-white rounded-full py-2 text-sm">
+        Agregar
+      </button>
     </div>
-  </div>
 
-</div>
-
-<!-- BELLEZA -->
-<h2>Belleza y cuidado</h2>
-<div class="grid">
-
-  <div class="product">
-    <div class="product-img" style="background-image:url('imagenproductos/secadordepelo.png')"></div>
-    <div class="product-info">
-      <h3>Secador de pelo</h3>
-      <div class="price">$22.000</div>
-      <button onclick="addToCart('Secador de pelo',22000)">Agregar</button>
+    <!-- PRODUCTO -->
+    <div class="group">
+      <div class="aspect-[3/4] rounded-3xl overflow-hidden bg-gray-100 mb-4">
+        <img src="imagenproductos/secadordepelo.png"
+             class="w-full h-full object-cover group-hover:scale-105 transition">
+      </div>
+      <h3 class="font-bold text-sm">Secador de Pelo</h3>
+      <p class="font-black text-lg">$22.000</p>
+      <button onclick="agregarProducto('Secador de Pelo',22000)"
+              class="mt-2 w-full bg-black text-white rounded-full py-2 text-sm">
+        Agregar
+      </button>
     </div>
+
   </div>
+</section>
 
+<!-- BOTÓN FINALIZAR -->
+<div class="fixed bottom-6 right-6">
+  <button onclick="finalizarCompra()"
+          class="bg-green-500 text-white px-6 py-4 rounded-full shadow-xl font-bold flex items-center gap-2">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" class="w-6">
+    Finalizar compra
+  </button>
 </div>
 
-<!-- CARRITO -->
-<div id="cart" onclick="checkout()">
-  🛒 Carrito (<span id="cart-count">0</span>)
-</div>
-
-<!-- WHATSAPP FLOAT -->
-<a class="whatsapp-float" href="https://wa.me/5493815877039" target="_blank">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-</a>
-
+<!-- SCRIPT CARRITO -->
 <script>
-  let cart = [];
+  let carrito = [];
 
-  function addToCart(name, price) {
-    cart.push({ name, price });
-    document.getElementById("cart-count").innerText = cart.length;
+  function agregarProducto(nombre, precio) {
+    carrito.push({ nombre, precio });
+    alert(nombre + " agregado al carrito");
   }
 
-  function checkout() {
-    if (cart.length === 0) {
+  function finalizarCompra() {
+    if (carrito.length === 0) {
       alert("El carrito está vacío");
       return;
     }
 
-    let message = "Hola! Quiero comprar:%0A";
+    let mensaje = "Hola Moovatrends! Quiero comprar:%0A";
     let total = 0;
 
-    cart.forEach(item => {
-      message += `- ${item.name} ($${item.price})%0A`;
-      total += item.price;
+    carrito.forEach(p => {
+      mensaje += `- ${p.nombre} ($${p.precio})%0A`;
+      total += p.precio;
     });
 
-    message += `%0ATotal: $${total}`;
+    mensaje += `%0ATotal: $${total}`;
 
-    window.open(`https://wa.me/5493815877039?text=${message}`, "_blank");
+    window.open(
+      "https://wa.me/5493815877039?text=" + mensaje,
+      "_blank"
+    );
   }
 </script>
 
